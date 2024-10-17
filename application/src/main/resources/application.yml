@@ -1,0 +1,38 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /jobexecution
+spring:
+  application:
+    name: Jobexecution
+  profiles:
+    active: Test
+  jpa:
+    properties:
+      hibernate:
+        ddl-auto: update
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        boot:
+          allow_jdbc_metadata_access: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics
+
+jobexecution:
+  datasource:
+    jdbcUrl: jdbc:postgresql://localhost:5432/jobexecution
+    username: Admin   # Add your actual username here
+    password:    # Add your actual password here (if any)
+    driverClassName: org.postgresql.Driver  # Explicitly define the driver
+    maximumPoolSize: 10
+    minimumIdle: 5
+    idleTimeout: 30000  # 30 seconds
+    maxLifetime: 30000  # 30 seconds
+    poolName: jobexecutionDataSource
+    connectionTestQuery: SELECT 1
+    leakDetectionThreshold: 5000  # 5 seconds
+
+
