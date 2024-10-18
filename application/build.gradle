@@ -4,6 +4,9 @@ plugins {
     id 'java'
 }
 dependencies {
-    implementation project(':persistence')
-    implementation 'org.springframework.boot:spring-boot-starter-web'
+        implementation (
+                project(':api'),
+                project(':security'),
+                project(':service')
+        )
 }

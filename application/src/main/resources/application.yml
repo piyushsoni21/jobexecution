@@ -1,3 +1,15 @@
+app:
+  url: "http://localhost:8082/jobexecution"
+  frontend:
+    url: http://localhost:3000/
+    email-confirm-base-url: http://localhost:8082/jobexecution/api/v1/auth/confirm-email
+  security:
+    jwt:
+      secretKey: f969730dbe8beca1989c9182777f097a85512d479240ee5a2357c46838a3d54a
+      expiration: 1800000 # 30 min
+      refreshToken:
+        expiration: 86400000 # 1 day
+
 server:
   port: 8082
   servlet:
@@ -8,9 +20,11 @@ spring:
   profiles:
     active: Test
   jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
     properties:
       hibernate:
-        ddl-auto: update
         dialect: org.hibernate.dialect.PostgreSQLDialect
         boot:
           allow_jdbc_metadata_access: false

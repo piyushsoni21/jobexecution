@@ -8,4 +8,8 @@ pluginManagement {
 rootProject.name = 'demo'
 include 'application'
 include 'persistence'
+include 'api'
+include 'service'
+include 'common'
+include 'security'
 
