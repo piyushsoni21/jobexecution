@@ -1,0 +1,7 @@
+dependencies {
+    implementation (
+            project(':persistence'),
+            project(':security'),
+            project(':common')
+    )
+}
